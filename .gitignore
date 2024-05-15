@@ -1,0 +1,9 @@
+modules/jenkins/aws_kp
+modules/jenkins/aws_kp.pub
+
+# Local .terraform directories
+**.terraform/*
+**.terraform.*
+**/*.tfstate
+**/*.tfstate.*
+**/tfplan.out
