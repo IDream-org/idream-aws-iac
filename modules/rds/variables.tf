@@ -3,8 +3,3 @@ variable "MY_IP" {
   description = "You IP Address"
   sensitive   = true
 }
-
-variable "AWS_REGION" {
-  type        = string
-  description = "AWS Region"
-}
