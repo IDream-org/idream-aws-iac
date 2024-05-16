@@ -14,7 +14,7 @@ resource "aws_instance" "idream-jenkins-instance" {
 
 resource "aws_key_pair" "idream-jenkins-instance-kp" {
   key_name   = "idream-jenkins-instance-kp-${var.ENVIRONMENT}"
-  public_key = file("${path.module}/aws_kp.pub")
+  public_key = file("${path.module}/aws_kp-${var.ENVIRONMENT}.pub")
 }
 
 resource "aws_eip" "idream-jenkins-instance-eip" {
