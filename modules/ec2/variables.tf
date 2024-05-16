@@ -5,6 +5,5 @@ variable "ENVIRONMENT" {
 
 variable "MY_IP" {
   type        = string
-  description = "You IP Address"
-  sensitive   = true
+  description = "Product Environment"
 }

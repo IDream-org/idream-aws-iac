@@ -1,20 +1,3 @@
-
-data "aws_ami" "ubuntu" {
-  most_recent = "true"
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-*-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["amazon"]
-}
-
 resource "aws_instance" "idream-jenkins-instance" {
   ami                    = "ami-0e001c9271cf7f3b9"
   instance_type          = "t2.micro"
@@ -24,13 +7,13 @@ resource "aws_instance" "idream-jenkins-instance" {
   user_data              = file("${path.module}/install_jenkins.sh")
 
   tags = {
-    Name    = "idream-jenkins-instance"
+    Name    = "idream-jenkins-instance-${var.ENVIRONMENT}"
     Project = "IDream"
   }
 }
 
 resource "aws_key_pair" "idream-jenkins-instance-kp" {
-  key_name   = "idream-jenkins-instance-kp"
+  key_name   = "idream-jenkins-instance-kp-${var.ENVIRONMENT}"
   public_key = file("${path.module}/aws_kp.pub")
 }
 
@@ -38,13 +21,13 @@ resource "aws_eip" "idream-jenkins-instance-eip" {
   instance = aws_instance.idream-jenkins-instance.id
 
   tags = {
-    Name    = "idream-jenkins-instance-eip"
-    Project = "IDream"
+    Name    = "idream-jenkins-instance-eip-${var.ENVIRONMENT}"
+    Project = "IDream-${var.ENVIRONMENT}"
   }
 }
 
 resource "aws_security_group" "idream-jenkins-instance-sg" {
-  name        = "idream-jenkins-instance-sg"
+  name        = "idream-jenkins-instance-sg-${var.ENVIRONMENT}"
   description = "Security group for IDream jenkins instance"
 
   ingress {
@@ -72,7 +55,7 @@ resource "aws_security_group" "idream-jenkins-instance-sg" {
   }
 
   tags = {
-    Name    = "idream-jenkins-instance-sg"
-    Project = "IDream"
+    Name    = "idream-jenkins-instance-sg-${var.ENVIRONMENT}"
+    Project = "IDream-${var.ENVIRONMENT}"
   }
 }

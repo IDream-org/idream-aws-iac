@@ -7,11 +7,6 @@ variable "AWS_REGION" {
 variable "MY_IP" {
   type        = string
   description = "You IP Address"
+  default     = "148.74.65.116"
   sensitive   = true
-}
-
-variable "BACKEND_BUCKET_NAME" {
-  type        = string
-  default     = "idream-backend-iac"
-  description = "Bucket name for jenkins backend"
 }

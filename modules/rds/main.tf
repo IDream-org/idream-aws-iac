@@ -1,14 +1,14 @@
 module "db" {
   source = "terraform-aws-modules/rds/aws"
 
-  identifier = "idream-rds"
+  identifier = "idream-rds-${var.ENVIRONMENT}"
 
   engine            = "postgres"
   engine_version    = "16.1"
   instance_class    = "db.t3.micro"
   allocated_storage = 5
 
-  db_name  = "idreamrds"
+  db_name  = "idreamrds${var.ENVIRONMENT}"
   username = "postgres"
   port     = "5432"
 
@@ -20,7 +20,7 @@ module "db" {
 }
 
 resource "aws_security_group" "idream-rds-sg" {
-  name        = "idream-rds-sg"
+  name        = "idream-rds-sg-${var.ENVIRONMENT}"
   description = "Security group for IDream RDS instance"
 
   ingress {
@@ -48,7 +48,7 @@ resource "aws_security_group" "idream-rds-sg" {
   }
 
   tags = {
-    Name    = "idream-rds-sg"
-    Project = "IDream"
+    Name    = "idream-rds-sg-${var.ENVIRONMENT}"
+    Project = "IDream-${var.ENVIRONMENT}"
   }
 }

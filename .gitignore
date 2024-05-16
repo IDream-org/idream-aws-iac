@@ -1,9 +1,25 @@
-modules/jenkins/aws_kp
-modules/jenkins/aws_kp.pub
+# Keys
+modules/ec2/aws_kp
+modules/ec2/aws_kp.pub
 
-# Local .terraform directories
-**.terraform/*
-**.terraform.*
-**/*.tfstate
-**/*.tfstate.*
-**/tfplan.out
+# Terraform
+.terraform
+*.tfstate
+*.tfstate.backup
+
+# Terragrunt
+.terragrunt-cache
+
+# OS X
+.history
+.DS_Store
+
+# IntelliJ
+.idea_modules
+*.iml
+*.iws
+*.ipr
+.idea/
+build/
+*/build/
+out/
