@@ -14,7 +14,6 @@ resource "aws_instance" "idream-jenkins-instance" {
 
 resource "aws_eip" "idream-jenkins-instance-eip" {
   instance = aws_instance.idream-jenkins-instance.id
-
   tags = {
     Name    = "idream-jenkins-instance-eip-${var.ENVIRONMENT}"
     Project = "IDream-${var.ENVIRONMENT}"
