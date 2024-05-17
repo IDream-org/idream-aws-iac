@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Plan') {
             steps {
-                sh "pwd;cd environments/${env.BRANCH_NAME} ; terraform init -force-copy"
-                sh "pwd;cd environments/${env.BRANCH_NAME} ; terraform plan"
+                sh "pwd;cd environments/${BRANCH_NAME} ; terraform init -force-copy"
+                sh "pwd;cd environments/${BRANCH_NAME} ; terraform plan"
                 
             }
         }
         stage('Apply') {
             steps {
-                sh "pwd;cd environments/${env.BRANCH_NAME} ; terraform apply -auto-approve"
+                sh "pwd;cd environments/${BRANCH_NAME} ; terraform apply -auto-approve"
             }
         }
     }
