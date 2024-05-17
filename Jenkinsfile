@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                  script{
-                        dir("terragrunt")
+                        dir("terraform")
                         {
                             git "https://github.com/IDream-org/idream-aws-iac.git"
                         }
@@ -19,14 +19,14 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh 'pwd;cd terragrunt/live/dev ; terragrunt run-all init'
-                sh "pwd;cd terragrunt/live/dev ; terragrunt run-all plan"
+                sh 'pwd;cd terraform/environments/dev ; terraform init'
+                sh "pwd;cd terraform/environments/dev ; terraform plan"
                 
             }
         }
         stage('Apply') {
             steps {
-                sh 'pwd;cd terragrunt/live/dev ; terragrunt run-all apply -auto-approve'
+                sh 'pwd;cd terraform/environments/dev ; terraform apply -auto-approve'
             }
         }
     }

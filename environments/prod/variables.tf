@@ -1,3 +1,9 @@
+variable "ENVIRONMENT" {
+  type        = string
+  default     = "prod"
+  description = "Product Environment"
+}
+
 variable "AWS_REGION" {
   type        = string
   default     = "us-east-1"
