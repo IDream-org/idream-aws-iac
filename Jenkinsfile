@@ -19,14 +19,14 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh 'pwd;cd terraform/environments/dev ; terraform init'
-                sh "pwd;cd terraform/environments/dev ; terraform plan"
+                sh 'pwd;cd environments/dev ; terraform init'
+                sh "pwd;cd environments/dev ; terraform plan"
                 
             }
         }
         stage('Apply') {
             steps {
-                sh 'pwd;cd terraform/environments/dev ; terraform apply -auto-approve'
+                sh 'pwd;cd environments/dev ; terraform apply -auto-approve'
             }
         }
     }
