@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Plan') {
             steps {
-                sh "pwd;cd environments/${BUILD_URL} ; terraform init -force-copy"
-                sh "pwd;cd environments/${BUILD_URL} ; terraform plan"
+                sh "pwd;cd environments/${GIT_URL} ; terraform init -force-copy"
+                sh "pwd;cd environments/${GIT_URL} ; terraform plan"
                 
             }
         }
         stage('Apply') {
             steps {
-                sh "pwd;cd environments/${BUILD_URL} ; terraform apply -auto-approve"
+                sh "pwd;cd environments/${GIT_URL} ; terraform apply -auto-approve"
             }
         }
     }
