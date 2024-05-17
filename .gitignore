@@ -4,6 +4,8 @@ modules/ec2/aws_kp.pub
 
 # Terraform
 .terraform
+*.tfstate
+*.tfstate.backup
 
 # Terragrunt
 .terragrunt-cache
