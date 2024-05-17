@@ -21,7 +21,7 @@ module "db" {
 
 resource "aws_security_group" "idream-rds-sg" {
   name        = "idream-rds-sg-${var.ENVIRONMENT}"
-  description = "Security group for IDream RDS instance"
+  description = "Security group for ${var.ENVIRONMENT} IDream RDS instance"
 
   ingress {
     description = "Allow my ip to connect though port 5432"

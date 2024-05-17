@@ -23,3 +23,6 @@ modules/ec2/aws_kp.pub
 build/
 */build/
 out/
+
+aws_kp
+aws_kp.pub
