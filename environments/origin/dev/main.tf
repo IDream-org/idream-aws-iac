@@ -8,3 +8,9 @@ module "s3" {
   source = "../../../modules/s3"
   ENVIRONMENT = var.ENVIRONMENT
 }
+
+
+module "beanstalk" {
+  source = "../../../modules/beanstalk"
+  ENVIRONMENT = var.ENVIRONMENT
+}
