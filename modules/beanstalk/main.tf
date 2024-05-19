@@ -15,7 +15,9 @@ resource "aws_iam_role" "idream-beanstalk-role" {
 
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy",
-    "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"
+    "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth",
+    "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
+    "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker"
   ]
 }
 
