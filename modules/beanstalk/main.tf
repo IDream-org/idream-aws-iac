@@ -1,31 +1,3 @@
-resource "aws_iam_role" "idream-beanstalk-role" {
-  name = "idream-beanstalk-role-${var.ENVIRONMENT}"
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Principal = {
-          Service = "elasticbeanstalk.amazonaws.com"
-        },
-        Action = "sts:AssumeRole"
-      }
-    ]
-  })
-
-  managed_policy_arns = [
-    "arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy",
-    "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth",
-    "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
-    "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker"
-  ]
-}
-
-resource "aws_iam_instance_profile" "idream-beanstalk-instance-profile" {
-  name = "idream-beanstalk-instance-profile-${var.ENVIRONMENT}"
-  role = aws_iam_role.idream-beanstalk-role.name
-}
-
 resource "aws_elastic_beanstalk_application" "idream-beanstalk" {
   name = "idream-beanstalk-${var.ENVIRONMENT}"
   description = "Elastic Beanstalk Application for IDream ${var.ENVIRONMENT}"
