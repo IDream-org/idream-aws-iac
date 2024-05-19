@@ -14,12 +14,6 @@ resource "aws_elastic_beanstalk_environment" "idream-beanstalk-nodejs-env" {
   solution_stack_name = "64bit Amazon Linux 2023 v6.1.5 running Node.js 20"
 
   setting {
-    namespace = "aws:autoscaling:launchconfiguration"
-    name      = "IamInstanceProfile"
-    value     = aws_iam_instance_profile.idream-beanstalk-instance-profile.name
-  }
-
-  setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "EnvironmentType"
     value     = "LoadBalanced" 
