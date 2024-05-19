@@ -83,6 +83,6 @@ resource "aws_elastic_beanstalk_environment" "idream-beanstalk-nodejs-env" {
   setting {
     namespace = "aws:ec2:vpc"
     name      = "Subnets"
-    value     = "${data.aws_subnets.default.ids[0]}, ${data.aws_subnets.default.ids[1]}"
+    value     = "subnet-0230279177957baf8, subnet-04328d29ec743147d"
   }
 }
