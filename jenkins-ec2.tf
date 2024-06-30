@@ -1,6 +1,6 @@
 resource "aws_instance" "idream-jenkins-instance" {
   ami                    = "ami-0e001c9271cf7f3b9"
-  instance_type          = "t2.small"
+  instance_type          = "t2.micro"
   availability_zone      = "us-east-1a"
   vpc_security_group_ids = [aws_security_group.idream-jenkins-instance-sg.id]
   key_name               = aws_key_pair.idream-jenkins-instance-kp.key_name
